@@ -9,7 +9,7 @@ export default function ChangeCurrency() {
 
   return (
     <div className="flex items-center gap-0.5 px-1 py-0.5 sm:px-2 rounded-lg border-2 border-blue-200 focus:ring-2 focus:ring-blue-400">
-      <Image
+      <img
         src={`https://flagsapi.com/${countryCode}/flat/64.png`}
         alt="Flag"
         className="w-[20px]"

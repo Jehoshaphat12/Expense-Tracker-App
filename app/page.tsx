@@ -15,7 +15,7 @@ const HomePage = () => {
   const { filteredTransactions, balance, income, expenses } = useTransactions();
 
   return (
-    <main className=" max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
+    <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
       <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-[30rem]">
@@ -39,7 +39,7 @@ const HomePage = () => {
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
               </span>
-              <span className="text-sm">Remind</span>
+              <span className="text-sm text-black">Remind</span>
             </button>
             <button
               aria-label="Set Budget"
@@ -49,7 +49,7 @@ const HomePage = () => {
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
               </span>
-              <span className="text-sm">Budget</span>
+              <span className="text-sm text-black">Budget</span>
             </button>
           </div>
           <div></div>
@@ -67,7 +67,9 @@ const HomePage = () => {
 
         <section>
           <div className="flex items-center justify-between mb-4 px-1">
-            <h3 className="text-md font-semibold mb-2">Latest Entries</h3>
+            <h3 className="text-md text-gray-900 font-semibold mb-2">
+              Latest Entries
+            </h3>
             <div className="sort relative group">
               <button
                 aria-label="Sort Options"

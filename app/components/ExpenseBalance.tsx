@@ -119,7 +119,7 @@ const ExpenseBalance = ({ balance, income, expenses }: ExpenseBalanceProps) => {
           })}
         </p>
       </div>
-      <div className="flex flex-col sm:flex-row w-full  space-x-3 mt-4">
+      <div className="flex flex-row w-full  space-x-3 mt-4">
         <div className="w-full text-center p-4 bg-white rounded-2xl shadow-lg hover:-translate-y-0.5 transition">
           <h2 className="flex space-x-3 items-center text-xs text-nowrap text-gray-500 sm:text-sm font-semibold">
             <LuWallet /> <span>Total Income</span>

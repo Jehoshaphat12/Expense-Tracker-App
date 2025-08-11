@@ -24,7 +24,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="shadow-md bg-white mb-6">
+    <div className="shadow-md bg-white mb-2">
       <div className="max-w-2xl mx-auto  flex items-center justify-between p-4">
         <Link href="/" className="text-xl font-bold text-blue-600">
           Expense Tracker
