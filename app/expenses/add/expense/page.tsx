@@ -1,10 +1,10 @@
 "use client";
 
 import { useTransactions } from "@/app/hook/useTransactions";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function addIncomePage() {
+export default function AddExpensePage() {
   const [incomeTitle, setIncomeTitle] = useState("");
   const [incomeAmount, setIncomeAmount] = useState("");
   const [category, setCategory] = useState("");
