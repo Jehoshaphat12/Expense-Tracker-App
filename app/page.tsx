@@ -2,35 +2,20 @@
 import React from "react";
 import Link from "next/link";
 import { LuWallet } from "react-icons/lu";
-import { FaBell, FaPlus, FaRegBell } from "react-icons/fa";
+import { FaRegBell } from "react-icons/fa";
 import { BiPlus } from "react-icons/bi";
-import { FiEdit, FiMoreHorizontal } from "react-icons/fi";
 import { IoIosMore } from "react-icons/io";
-import { IoFastFoodOutline, IoGiftOutline } from "react-icons/io5";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
-import { MdOutlineSpeakerPhone } from "react-icons/md";
 
 import ExpenseList from "./components/ExpenseList";
 import ExpenseBalance from "./components/ExpenseBalance";
 import { useTransactions } from "@/app/hook/useTransactions";
-import Filters from "./components/Filters";
+// import Filters from "./components/Filters";
 
 const HomePage = () => {
   const { filteredTransactions, balance, income, expenses } = useTransactions();
-  // const formatCurrency = (amount: number) => {
-  //   new Intl.NumberFormat("en-GH", {
-  //     style: "currency",
-  //     currency: "GHS",
-  //   }).format(amount);
-  // };
 
   return (
     <main className=" max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
-      {/* <header className="text-center w-full bg-white">
-        <h1 className="text-2xl font-semibold">My Expense Tracker</h1>
-        <p className="text-gray-500">Track your spending. Stay in control.</p>
-      </header> */}
-
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
       <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-[30rem]">

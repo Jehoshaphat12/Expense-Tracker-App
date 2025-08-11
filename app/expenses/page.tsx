@@ -1,5 +1,4 @@
 "use client";
-import ExpenseBalance from "../components/ExpenseBalance";
 import ExpenseList from "../components/ExpenseList";
 import { useTransactions } from "@/app/hook/useTransactions";
 

@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 export interface Transaction {
   id: number;
@@ -41,10 +41,7 @@ export function useTransactions() {
   });
 
   useEffect(() => {
-    const storedTransactions =
-      typeof window !== "undefined"
-        ? localStorage.getItem("transactions")
-        : null;
+    const storedTransactions = localStorage.getItem("transactions");
     if (storedTransactions) setTransactions(JSON.parse(storedTransactions));
   }, []);
 

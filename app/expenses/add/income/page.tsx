@@ -1,9 +1,7 @@
 "use client";
 
-import ExpenseForm from "@/app/components/ExpenseForm";
 import { useTransactions } from "@/app/hook/useTransactions";
 import { usePathname, useRouter } from "next/navigation";
-import { title } from "process";
 import { useState } from "react";
 
 export default function addIncomePage() {

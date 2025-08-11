@@ -1,5 +1,4 @@
 "use client";
-import ExpenseForm from "@/app/components/ExpenseForm";
 import ExpenseList from "@/app/components/ExpenseList";
 import Link from "next/link";
 import { IoIosMore } from "react-icons/io";
@@ -54,12 +53,10 @@ export default function AddExpensePage() {
             </ul>
           </div>
         </div>
-        {/* Expense List */}
         <div className="overflow-auto h-[30rem]">
           <ExpenseList transactions={transactions} />
         </div>
       </section>
-      {/* <ExpenseForm /> */}
     </div>
   );
 }
