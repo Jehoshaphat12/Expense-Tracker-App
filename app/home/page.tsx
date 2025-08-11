@@ -10,13 +10,12 @@ import { IoFastFoodOutline, IoGiftOutline } from "react-icons/io5";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { MdOutlineSpeakerPhone } from "react-icons/md";
 
-import ExpenseList from "./components/ExpenseList";
-import ExpenseBalance from "./components/ExpenseBalance";
+import ExpenseList from "../components/ExpenseList";
+import ExpenseBalance from "../components/ExpenseBalance";
 import { useTransactions } from "@/app/hook/useTransactions";
-import Filters from "./components/Filters";
 
 const HomePage = () => {
-  const { filteredTransactions, balance, income, expenses } = useTransactions();
+  const { transactions, balance, income, expenses } = useTransactions();
   // const formatCurrency = (amount: number) => {
   //   new Intl.NumberFormat("en-GH", {
   //     style: "currency",
@@ -25,33 +24,33 @@ const HomePage = () => {
   // };
 
   return (
-    <main className=" max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
-      {/* <header className="text-center w-full bg-white">
+    <main className=" max-w-xl mx-auto bg-gray-100 space-y-6">
+      <header className="text-center w-full bg-white">
         <h1 className="text-2xl font-semibold">My Expense Tracker</h1>
         <p className="text-gray-500">Track your spending. Stay in control.</p>
-      </header> */}
+      </header>
 
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
-      <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-[30rem]">
+      <div className="relative overflow-hidden p-7 bg-white rounded-t-4xl h-[30rem]">
         <section className="flex flex-col space-x-3 w-full items-center justify-center mt-3  mb-6">
-          <div className="flex items-center justify-center space-x-2 w-full mb-4">
+          <div className="flex items-center justify-center space-x-3 w-full mb-4">
             <button
               aria-label="Add Savings"
               type="button"
-              className="bg-blue-600 w-full flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
+              className="bg-blue-600 flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
             >
-              <span className="hidden sm:inline-block bg-blue-500 rounded-lg p-1 text-white">
+              <span className="bg-blue-500 rounded-lg p-1 text-white">
                 <BiPlus size={20} />
               </span>
-              <span className="text-white text-xs sm:text-sm ">Savings</span>
+              <span className="text-white text-sm">Savings</span>
             </button>
             <button
               aria-label="Set Reminder"
               type="button"
-              className="flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
+              className="flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
             >
-              <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
+              <span className="bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
               </span>
               <span className="text-sm">Remind</span>
@@ -59,9 +58,9 @@ const HomePage = () => {
             <button
               aria-label="Set Budget"
               type="button"
-              className="flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
+              className="flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
             >
-              <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
+              <span className="bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
               </span>
               <span className="text-sm">Budget</span>
@@ -81,7 +80,7 @@ const HomePage = () => {
         </Link>
 
         <section>
-          <div className="flex items-center justify-between mb-4 px-1">
+          <div className="flex items-center justify-between mb-4 px-4">
             <h3 className="text-md font-semibold mb-2">Latest Entries</h3>
             <div className="sort relative group">
               <button
@@ -99,10 +98,8 @@ const HomePage = () => {
                 </li>
               </ul>
             </div>
-
-            {/* <Filters /> */}
           </div>
-          <ExpenseList transactions={filteredTransactions} />
+          <ExpenseList transactions={transactions} />
         </section>
       </div>
     </main>
