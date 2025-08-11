@@ -1,6 +1,5 @@
 "use client";
 
-import { useTransactions } from "@/app/hook/useTransactions";
 import React from "react";
 import { LuWallet } from "react-icons/lu";
 import ChangeCurrency from "./ChangeCurrency";
@@ -91,14 +90,6 @@ interface ExpenseBalanceProps {
 
 const ExpenseBalance = ({ balance, income, expenses }: ExpenseBalanceProps) => {
   const { currency } = useCurrency();
-
-  function formatAmount(amount: any, currency: any) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: currency,
-      minimumFractionDigits: 2,
-    }).format(amount);
-  }
 
   function findCurrencySymbol(code: string) {
     for (const curr of currencies) {

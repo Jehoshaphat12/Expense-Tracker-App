@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransactions } from "@/app/hook/useTransactions";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function DeleteDialogBox({

@@ -1,8 +1,5 @@
 "use client";
-import { useTransactions } from "@/app/hook/useTransactions";
-import { getExpensesFromStorage } from "@/lib/storage";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import { IoFastFoodOutline, IoGiftOutline } from "react-icons/io5";
 import { LuBoxes } from "react-icons/lu";

@@ -10,7 +10,7 @@ import { currencies } from "@/app/components/CountryCodes";
 export default function ExpenseDetail() {
   const { id } = useParams();
   const router = useRouter();
-  const { transactions, deleteTransaction } = useTransactions();
+  const { transactions } = useTransactions();
   const { currency } = useCurrency();
 
   const transaction = transactions.find((t) => t.id === Number(id));
