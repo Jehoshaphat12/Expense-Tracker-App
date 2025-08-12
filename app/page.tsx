@@ -55,7 +55,10 @@ const HomePage = () => {
           <div></div>
         </section>
 
-        <Link href="/expenses/add" className="absolute bottom-6 right-4  z-10">
+        <Link
+          href="/expenses/add"
+          className="hidden sm:block absolute bottom-6 right-4  z-10"
+        >
           <button
             aria-label="Add Expense"
             type="button"
