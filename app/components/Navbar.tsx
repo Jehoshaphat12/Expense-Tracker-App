@@ -75,16 +75,16 @@ export default function Navbar() {
       {/* Mobile View Navbar */}
       <div className="sm:hidden absolute bottom-0 p-5 left-0 right-0 z-50  mx-4 bg-white border-t border-gray-400">
         <div className="flex space-x-3 items-center justify-between  text-gray-400">
-          {mobileNav("/", <GoHomeFill size={25} />)}
-          {mobileNav("/expenses", <FaList size={25} />)}
+          {mobileNav("/", <GoHomeFill size={22} />)}
+          {mobileNav("/expenses", <FaList size={22} />)}
           <Link
             href={"/expenses/add"}
             className={`bg-blue-600 p-5 rounded-full text-white `}
           >
             <FiPlus size={30} />
           </Link>
-          {mobileNav("/expenses/summary", <FaChartLine size={25} />)}
-          {mobileNav("/settings", <IoSettings size={25} />)}
+          {mobileNav("/expenses/summary", <FaChartLine size={22} />)}
+          {mobileNav("/settings", <IoSettings size={22} />)}
         </div>
       </div>
     </>

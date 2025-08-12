@@ -53,7 +53,7 @@ export default function AddExpensePage() {
             </ul>
           </div>
         </div>
-        <div className="overflow-auto h-[30rem]">
+        <div className="">
           <ExpenseList transactions={transactions} />
         </div>
       </section>

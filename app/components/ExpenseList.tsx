@@ -89,7 +89,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
   // }, []);
 
   return (
-    <ul className="space-y-2 md:px-3">
+    <ul className="space-y-2 md:px-3 overflow-y-auto">
       {transactions.length > 0 ? (
         transactions.map((transaction, i) => (
           <li
