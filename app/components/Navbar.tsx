@@ -73,7 +73,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile View Navbar */}
-      <div className="sm:hidden absolute bottom-0 p-5 pb-7 left-0 right-0 z-50  mx-4 bg-white border-t border-gray-400">
+      <div className="sm:hidden absolute bottom-0 p-5 left-0 right-0 z-50  mx-4 bg-white border-t border-gray-400">
         <div className="flex space-x-3 items-center justify-between  text-gray-400">
           {mobileNav("/", <GoHomeFill size={25} />)}
           {mobileNav("/expenses", <FaList size={25} />)}
