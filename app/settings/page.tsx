@@ -11,7 +11,7 @@ export default function SettingPage() {
   const [notifications, setNotifications] = useState(true);
 
   return (
-    <div className="max-w-2xl mx-auto px-1 py-4 space-y-6 pb-30 dark:bg-gray-900">
+    <div className="max-w-2xl mx-auto py-4 px-5 space-y-6 pb-30 dark:bg-gray-900">
       <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
         Settings
       </h1>

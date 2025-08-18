@@ -16,7 +16,14 @@ const HomePage = () => {
   const { filteredTransactions, balance, income, expenses } = useTransactions();
 
   return (
-    <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 dark:bg-gray-950 rounded-4xl space-y-1 overflow-y-auto">
+    <>
+    <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800 py-4 px-4">
+      <h1 className="font-semibold text-xl dark:text-gray-50">Welcome, Jay-O</h1>
+      <div className="bg-gray-400 text-gray-200 px-3 py-1 rounded-full">
+        <p className="font-semibold">J</p>
+      </div>
+    </div>
+    <div className="max-w-xl mx-auto bg-blue-600 dark:bg-gray-950 rounded-4xl space-y-1 overflow-y-auto mt-1">
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
       <div className="relative overflow-y-auto p-7 px-3 bg-white dark:bg-gray-800 rounded-t-4xl h-full">
@@ -26,7 +33,7 @@ const HomePage = () => {
               aria-label="Add Savings"
               type="button"
               className="bg-blue-600 w-full flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
-            >
+              >
               <span className="hidden sm:inline-block bg-blue-500 rounded-lg p-1 text-white">
                 <BiPlus size={20} />
               </span>
@@ -36,7 +43,7 @@ const HomePage = () => {
               aria-label="Set Reminder"
               type="button"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
-            >
+              >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
               </span>
@@ -46,7 +53,7 @@ const HomePage = () => {
               aria-label="Set Budget"
               type="button"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
-            >
+              >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
               </span>
@@ -59,12 +66,12 @@ const HomePage = () => {
         <Link
           href="/expenses/add"
           className="hidden sm:block absolute bottom-6 right-4  z-10"
-        >
+          >
           <button
             aria-label="Add Expense"
             type="button"
             className="w-full bg-blue-600 text-white text-2xl py-2 px-3 rounded-full hover:bg-blue-700 hover:scale-110 transition duration-300 cursor-pointer"
-          >
+            >
             <BiPlus size={25} className="inline-block " />
           </button>
         </Link>
@@ -75,7 +82,8 @@ const HomePage = () => {
           <ExpenseList transactions={filteredTransactions} />
         </section>
       </div>
-    </main>
+    </div>
+            </>
   );
 };
 

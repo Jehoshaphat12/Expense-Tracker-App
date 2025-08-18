@@ -169,7 +169,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
     <>
       {/* <Filters /> */}
       {/* Filter Bar */}
-      <div className="flex items-center bg-white dark:bg-gray-800 dark:text-gray-50 justify-between mb-4 px-1">
+      <div className="flex items-center bg-white dark:bg-gray-800 dark:text-gray-50 justify-between mb-4 px-4">
         <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
           {filter}&apos;s Entries
         </h3>
@@ -181,12 +181,12 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
           >
             <IoIosMore size={30} className="text-gray-800 dark:text-gray-50 cursor-pointer" />
           </button>
-          <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white shadow-lg rounded-lg  space-y-1">
+          <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg  space-y-1">
             {sortList.map(({ key, label }) => (
               <li
                 key={key}
                 onClick={() => setFilter(key)}
-                className="hover:bg-gray-100 p-3 px-4 text-nowrap"
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 p-3 px-4 text-nowrap"
               >
                 {label}
               </li>
@@ -199,7 +199,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
         </div>
       </div>
 
-      <div className="h-full dark:bg-gray-800  overflow-y-auto overflow-x-hidden md:px-3 pb-30 rounded-3xl">
+      <div className="h-full dark:bg-gray-800  overflow-y-auto overflow-x-hidden px-3 md:px-3 pb-30 rounded-3xl">
         <ul className="space-y-2 pb-3">
           {filteredTransactions.length > 0 ? (
             filteredTransactions.map((transaction, i) => (
