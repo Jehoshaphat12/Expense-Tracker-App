@@ -173,7 +173,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
               {/* Filter Bar */}
           <div className="flex items-center justify-between mb-4 px-1">
             <h3 className="text-md text-gray-900 font-semibold mb-2 first-letter:capitalize">
-              {filter}'s Entries
+              {filter}&apos;s Entries
             </h3>
             <div className="sort relative group">
               <button
