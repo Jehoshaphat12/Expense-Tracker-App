@@ -62,6 +62,7 @@ export default function Navbar() {
             {navLink("/expenses/add", "+ Add")}
             {navLink("/expenses", "View Expenses")}
             {navLink("/summary", "Summary")}
+            {navLink("/settings", "Settings")}
           </div>
         </div>
         {/* <nav className="max-w-xl mx-auto flex flex-col justify-center p-4  bg-white mb-6  gap-4">

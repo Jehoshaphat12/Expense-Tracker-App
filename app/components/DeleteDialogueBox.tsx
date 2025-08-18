@@ -23,20 +23,20 @@ export default function DeleteDialogBox({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="mt-3 w-full font-semibold bg-white text-red-600 py-2 rounded-2xl hover:bg-red-700 hover:text-white transition"
+        className="mt-3 w-full font-semibold bg-white text-red-600 py-2 rounded-2xl dark:border dark:border-gray-600 hover:bg-red-700 hover:text-white transition"
       >
         {" "}
         Delete Transaction
       </button>
       {isOpen && (
         <div className="fixed  z-20 inset-0 flex items-center justify-center bg-gray-800/80">
-          <div className="bg-white w-[80%] max-w-[400px] p-6 rounded-2xl shadow-lg">
+          <div className="bg-white dark:bg-gray-800 dark:text-gray-50 w-[80%] max-w-[400px] p-6 rounded-2xl shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Confrim Delete</h2>
             <p>Are you sure you want to delete this transaction?</p>
             <div className="mt-4 flex justify-end space-x-3">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 bg-gray-300 rounded-lg"
+                className="px-4 py-2 bg-gray-300 dark:bg-gray-700 rounded-lg"
               >
                 Cancel
               </button>

@@ -119,10 +119,10 @@ const exportPDF = async () => {
 }
 
   return (
-    <div className="p-4 space-y-6 pb-10">
+    <div className="p-4 space-y-6 pb-10 dark:bg-gray-800 dark:text-gray-50">
          {/* Filter Bar */}
           <div className="flex items-center justify-between mb-4 px-1">
-            <h3 className="text-md text-gray-900 font-semibold mb-2 first-letter:capitalize">
+            <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
               {filter}&apos;s Analysis
             </h3>
             <div className="sort relative group">
@@ -131,9 +131,9 @@ const exportPDF = async () => {
                 type="button"
                 className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
                 >
-                <IoIosMore size={30} className="text-gray-800 cursor-pointer" />
+                <IoIosMore size={30} className=" cursor-pointer" />
               </button>
-              <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white shadow-lg rounded-lg  space-y-1">
+              <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg  space-y-1">
                 {sortList.map(({key, label}) => (
                   <li key={key} onClick={() => setFilter(key)} className="hover:bg-gray-100 p-3 px-4 text-nowrap">{label}</li>
                   
@@ -159,7 +159,7 @@ const exportPDF = async () => {
       </div>
 
       {/* Pie Chart */}
-      <div className="w-full h-64 bg-white rounded-xl shadow p-4">
+      <div className="w-full h-64 bg-white dark:bg-gray-800 dark:border-gray-600 dark:border rounded-xl shadow p-4">
         <h2 className="font-semibold mb-2">Income vs Expenses</h2>
         <ResponsiveContainer>
           <PieChart>
@@ -181,7 +181,7 @@ const exportPDF = async () => {
       </div>
 
       {/* Line Chart */}
-      <div className="w-full h-64 bg-white rounded-xl shadow p-4">
+      <div className="w-full h-64 bg-white dark:bg-gray-800 dark:border-gray-600 dark:border rounded-xl shadow p-4 pb-9">
         <h2 className="font-semibold mb-2">Transactions Over Time</h2>
         <ResponsiveContainer>
           <LineChart data={lineData}>
