@@ -89,7 +89,8 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
   // }, []);
 
   return (
-    <ul className="space-y-2 md:px-3 overflow-y-auto">
+    <div className="h-[80vh] overflow-y-auto md:px-3">
+    <ul className="space-y-2">
       {transactions.length > 0 ? (
         transactions.map((transaction, i) => (
           <li
@@ -135,5 +136,6 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
         <p className="text-center text-gray-500">No Transactions yet.</p>
       )}
     </ul>
+    </div>
   );
 }
