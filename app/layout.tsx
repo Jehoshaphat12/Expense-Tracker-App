@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <CurrencyProvider>
           <Navbar />
-          <main className="p-4 max-w-2xl mx-auto">{children}</main>
+          <main className="p-4 max-h[100%] max-w-2xl mx-auto">{children}</main>
         </CurrencyProvider>
       </body>
     </html>

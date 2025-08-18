@@ -89,8 +89,8 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
   // }, []);
 
   return (
-    <div className="h-[80vh] overflow-y-auto md:px-3">
-    <ul className="space-y-2">
+    <div className="h-full overflow-y-auto overflow-x-hidden md:px-3 pb-20">
+    <ul className="space-y-2 pb-3">
       {transactions.length > 0 ? (
         transactions.map((transaction, i) => (
           <li

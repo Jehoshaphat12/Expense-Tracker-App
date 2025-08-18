@@ -18,7 +18,7 @@ const HomePage = () => {
     <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
-      <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-[30rem]">
+      <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-full">
         <section className="flex flex-col space-x-3 w-full items-center justify-center mt-3  mb-6">
           <div className="flex items-center justify-center space-x-2 w-full mb-4">
             <button
