@@ -29,7 +29,7 @@ export default function DeleteDialogBox({
         Delete Transaction
       </button>
       {isOpen && (
-        <div className="fixed  z-20 inset-0 flex items-center justify-center bg-gray-800/65">
+        <div className="fixed  z-20 inset-0 flex items-center justify-center bg-black/65">
           <div className="bg-white dark:bg-gray-900 dark:text-gray-50 w-[80%] max-w-[400px] p-6 rounded-2xl shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Confrim Delete</h2>
             <p>Are you sure you want to delete this transaction?</p>
