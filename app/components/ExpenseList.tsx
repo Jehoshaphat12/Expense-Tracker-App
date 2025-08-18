@@ -35,7 +35,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
   // const { transactions } = useTransactions();
 
   const { currency } = useCurrency();
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("today");
 
   const iconsList = [
     {

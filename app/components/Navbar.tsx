@@ -29,7 +29,7 @@ export default function Navbar() {
     <Link
       href={href}
       className={`p-3 rounded-full ${
-        pathname === href ? "text-blue-700 bg-gray-100" : ""
+        pathname === href ? "text-blue-700 bg-gray-100 dark:bg-gray-600" : ""
       }`}
     >
       {icon}
@@ -74,7 +74,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile View Navbar */}
-      <div className="sm:hidden fixed bottom-0 p-5 left-0 right-0 z-100  mx-0 bg-white dark:bg-gray-800 border-t border-gray-400">
+      <div className="sm:hidden fixed bottom-0 p-5 left-0 right-0 z-100  mx-0 bg-white dark:bg-gray-800 border-t border-gray-400 dark:border-gray-700">
         <div className="flex space-x-3 items-center justify-between  text-gray-400 dark:text-gray-400">
           {mobileNav("/", <GoHomeFill size={22} />)}
           {mobileNav("/expenses", <FaList size={22} />)}

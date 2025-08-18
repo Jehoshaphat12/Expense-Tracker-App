@@ -23,7 +23,7 @@ export default function DeleteDialogBox({
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="mt-3 w-full font-semibold bg-white dark:bg-gray-800 text-red-600 py-2 rounded-2xl dark:border dark:border-gray-600 hover:bg-red-700 hover:text-white transition"
+        className="mt-3 w-full font-semibold bg-white dark:bg-gray-800 text-red-600 py-2 rounded-2xl dark:border  hover:bg-red-700 hover:text-white transition"
       >
         {" "}
         Delete Transaction

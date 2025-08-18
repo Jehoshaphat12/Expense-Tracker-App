@@ -16,11 +16,11 @@ const HomePage = () => {
   const { filteredTransactions, balance, income, expenses } = useTransactions();
 
   return (
-    <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
+    <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 dark:bg-gray-950 rounded-4xl space-y-1 overflow-y-auto">
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
-      <div className="relative overflow-hidden p-7 px-5 bg-white dark:bg-gray-800 rounded-t-4xl h-full">
-        <section className="flex flex-col dark:text-gray-50 space-x-3 w-full items-center justify-center mt-3  mb-6">
+      <div className="relative overflow-y-auto p-7 px-3 bg-white dark:bg-gray-800 rounded-t-4xl h-full">
+        <section className="flex flex-col dark:text-gray-50 space-x-3 w-full items-center justify-center mt-3  mb-6 px-5">
           <div className="flex items-center justify-center space-x-2 w-full mb-4">
             <button
               aria-label="Add Savings"
