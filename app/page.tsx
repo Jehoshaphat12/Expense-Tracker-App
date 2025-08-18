@@ -9,6 +9,7 @@ import { IoIosMore } from "react-icons/io";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseBalance from "./components/ExpenseBalance";
 import { useTransactions } from "@/app/hook/useTransactions";
+import Filters from "./components/Filters";
 // import Filters from "./components/Filters";
 
 const HomePage = () => {
@@ -67,31 +68,10 @@ const HomePage = () => {
             <BiPlus size={25} className="inline-block " />
           </button>
         </Link>
+        
 
-        <section>
-          <div className="flex items-center justify-between mb-4 px-1">
-            <h3 className="text-md text-gray-900 font-semibold mb-2">
-              Latest Entries
-            </h3>
-            <div className="sort relative group">
-              <button
-                aria-label="Sort Options"
-                type="button"
-                className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
-              >
-                <IoIosMore size={30} className="text-gray-800 cursor-pointer" />
-              </button>
-              <ul className="absolute hidden group-hover:block right-4 top-5 bg-white shadow-lg rounded-lg  space-y-1">
-                <li className="hover:bg-gray-100 p-3 px-4">Today</li>
-                <li className="hover:bg-gray-100 p-3 px-4">Yesterday</li>
-                <li className="hover:bg-gray-100 p-3 px-4">
-                  <Link href={"/expenses"}>More...</Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* <Filters /> */}
-          </div>
+        <section className="h-[50dvh]">
+          
           <ExpenseList transactions={filteredTransactions} />
         </section>
       </div>

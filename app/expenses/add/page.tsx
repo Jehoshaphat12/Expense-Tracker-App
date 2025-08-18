@@ -34,26 +34,8 @@ export default function AddExpensePage() {
       </section>
 
       <section className="bg-white p-6 px-5 rounded-4xl mt-6">
-        <div className="flex items-center justify-between mb-4 px-4">
-          <h3 className="text-md font-semibold mb-2">Latest Entries</h3>
-          <div className="sort relative group">
-            <button
-              aria-label="Sort Options"
-              type="button"
-              className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
-            >
-              <IoIosMore size={30} className="text-gray-800 cursor-pointer" />
-            </button>
-            <ul className="absolute hidden group-hover:block right-4 top-5 bg-white shadow-lg rounded-lg  space-y-1">
-              <li className="hover:bg-gray-100 p-3 px-4">Today</li>
-              <li className="hover:bg-gray-100 p-3 px-4">Yesterday</li>
-              <li className="hover:bg-gray-100 p-3 px-4">
-                <Link href={"/expenses"}>More...</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="">
+        
+        <div className="h-[60dvh] flex flex-col overflow-y-auto overflow-x-hidden md:p-4">
           <ExpenseList transactions={transactions} />
         </div>
       </section>
