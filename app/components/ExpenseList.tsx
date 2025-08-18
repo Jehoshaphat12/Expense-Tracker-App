@@ -23,6 +23,14 @@ interface ExpenseListProps {
   transactions: Transaction[];
 }
 
+  export const sortList = [
+          { key: "today", label: "Today" },
+          { key: "yesterday", label: "Yesterday" },
+          { key: "this Week", label: "This Week" },
+          { key: "last Week", label: "Last Week" },
+          { key: "this Month", label: "This Month" },
+  ]
+
 export default function ExpenseList({ transactions }: ExpenseListProps) {
   // const { transactions } = useTransactions();
 
@@ -147,14 +155,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
     }
   })
 
-  const sortList = [
-          {key: "all", label: "All"},
-          { key: "today", label: "Today" },
-          { key: "yesterday", label: "Yesterday" },
-          { key: "this Week", label: "This Week" },
-          { key: "last Week", label: "Last Week" },
-          { key: "this Month", label: "This Month" },
-  ]
+  
 
   // useEffect(() => {
   //   setExpenses(getExpensesFromStorage());

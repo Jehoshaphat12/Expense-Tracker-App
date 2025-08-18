@@ -61,7 +61,7 @@ export default function Navbar() {
             {navLink("/", "Home")}
             {navLink("/expenses/add", "+ Add")}
             {navLink("/expenses", "View Expenses")}
-            {navLink("/expenses/summary", "Summary")}
+            {navLink("/summary", "Summary")}
           </div>
         </div>
         {/* <nav className="max-w-xl mx-auto flex flex-col justify-center p-4  bg-white mb-6  gap-4">
@@ -83,7 +83,7 @@ export default function Navbar() {
           >
             <FiPlus size={30} />
           </Link>
-          {mobileNav("/expenses/summary", <FaChartLine size={22} />)}
+          {mobileNav("/summary", <FaChartLine size={22} />)}
           {mobileNav("/settings", <IoSettings size={22} />)}
         </div>
       </div>
