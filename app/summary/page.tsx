@@ -18,6 +18,12 @@ import {
 import { useTransactions } from "@/app/hook/useTransactions";
 import { sortList } from "../components/ExpenseList";
 import { IoIosMore } from "react-icons/io";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
+
+
+
 
 // Colors
 const COLORS = ["#22c55e", "#ef4444"]; // green for income, red for expenses
@@ -93,8 +99,27 @@ export default function TransactionSummary() {
     amount: t.amount
   }));
 
+
+
+//   EXPORT TO PDF FUNCTION
+const exportPDF = async () => {
+    const element = document.getElementById("report-section")
+    if(!element) return
+
+    const canvas = await html2canvas(element)
+    const imgData = canvas.toDataURL("image/png")
+
+    const pdf = new jsPDF("p", "mm", "a4")
+    const imgProps = pdf.getImageProperties(imgData)
+    const pdfWidth = pdf.internal.pageSize.getWidth()
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight)
+    pdf.save("Transaction_Report.pdf")
+}
+
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-4 space-y-6 pb-10">
          {/* Filter Bar */}
           <div className="flex items-center justify-between mb-4 px-1">
             <h3 className="text-md text-gray-900 font-semibold mb-2 first-letter:capitalize">
@@ -119,17 +144,17 @@ export default function TransactionSummary() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-green-100 text-green-800 rounded-xl p-4 shadow">
+        <div className="bg-green-100 text-green-800 rounded-xl p-3 md:p-4 shadow">
           <p className="text-sm">Income</p>
-          <p className="text-xl font-bold">${income.toFixed(2)}</p>
+          <p className="md:text-xl font-bold">${income.toFixed(2)}</p>
         </div>
-        <div className="bg-red-100 text-red-800 rounded-xl p-4 shadow">
+        <div className="bg-red-100 text-red-800 rounded-xl p-3 md:p-4 shadow">
           <p className="text-sm">Expenses</p>
-          <p className="text-xl font-bold">${expenses.toFixed(2)}</p>
+          <p className="md:text-xl font-bold">${expenses.toFixed(2)}</p>
         </div>
-        <div className="bg-blue-100 text-blue-800 rounded-xl p-4 shadow">
+        <div className="bg-blue-100 text-blue-800 rounded-xl p-3 md:p-4 shadow">
           <p className="text-sm">Balance</p>
-          <p className="text-xl font-bold">${balance.toFixed(2)}</p>
+          <p className="md:text-xl font-bold">${balance.toFixed(2)}</p>
         </div>
       </div>
 
@@ -170,6 +195,13 @@ export default function TransactionSummary() {
             <Bar dataKey="expense" fill="#FF8042" />
           </LineChart>
         </ResponsiveContainer>
+      </div>
+
+      {/* Export Buttons */}
+      <div className="w-full flex gap-3 mb-4">
+        <button onClick={exportPDF} className="w-full mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 cursor-pointer">
+            Export PDF
+        </button>
       </div>
     </div>
   );
