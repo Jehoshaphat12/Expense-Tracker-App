@@ -40,7 +40,7 @@ const HomePage = () => {
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
               </span>
-              <span className="text-sm text-black">Remind</span>
+              <span className="text-sm">Remind</span>
             </button>
             <button
               aria-label="Set Budget"
@@ -50,7 +50,7 @@ const HomePage = () => {
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
               </span>
-              <span className="text-sm text-black">Budget</span>
+              <span className="text-sm">Budget</span>
             </button>
           </div>
           <div></div>

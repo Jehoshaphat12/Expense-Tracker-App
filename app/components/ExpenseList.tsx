@@ -179,7 +179,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
             type="button"
             className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
           >
-            <IoIosMore size={30} className="text-gray-800 cursor-pointer" />
+            <IoIosMore size={30} className="text-gray-800 dark:text-gray-50 cursor-pointer" />
           </button>
           <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white shadow-lg rounded-lg  space-y-1">
             {sortList.map(({ key, label }) => (

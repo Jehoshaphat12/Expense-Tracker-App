@@ -119,7 +119,7 @@ const exportPDF = async () => {
 }
 
   return (
-    <div className="p-4 space-y-6 pb-10 dark:bg-gray-800 dark:text-gray-50">
+    <div className="p-4 space-y-6 pb-30 dark:bg-gray-800 dark:text-gray-50">
          {/* Filter Bar */}
           <div className="flex items-center justify-between mb-4 px-1">
             <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
