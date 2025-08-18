@@ -199,7 +199,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
         </div>
       </div>
 
-      <div className="h-full overflow-y-auto overflow-x-hidden md:px-3 pb-30 rounded-3xl">
+      <div className="h-full dark:bg-gray-800  overflow-y-auto overflow-x-hidden md:px-3 pb-30 rounded-3xl">
         <ul className="space-y-2 pb-3">
           {filteredTransactions.length > 0 ? (
             filteredTransactions.map((transaction, i) => (
@@ -214,7 +214,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
                   className="flex justify-between w-full items-center"
                 >
                   <div className="flex items-center space-x-2">
-                    <span className="bg-gray-200 dark:bg-gray-700 dark:text-gray-500 p-2 rounded-lg text-gray-600">
+                    <span className="bg-gray-200 dark:bg-gray-700 dark:text-gray-200 p-2 rounded-lg text-gray-600">
                       {findIcon(transaction.title, transaction.category)}
                     </span>
                     <span>{transaction.title}</span>
@@ -224,7 +224,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
                       className={`${
                         transaction.amount > 0
                           ? "text-green-600"
-                          : "text-gray-600"
+                          : "text-gray-600 dark:text-gray-200"
                       } text-sm`}
                     >
                       {transaction.amount > 0 ? "+" : "-"}
@@ -233,7 +233,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
                     </span>
                     <Link href={`/expenses/${transaction.id}/edit`}>
                       <FiEdit
-                        className="text-gray-500 cursor-pointer ml-2"
+                        className="text-gray-500 dark:text-gray-200 cursor-pointer ml-2"
                         onClick={() => {
                           // Handle edit action
                           console.log("Edit transaction", transaction.id);

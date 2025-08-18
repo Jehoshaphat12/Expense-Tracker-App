@@ -19,7 +19,7 @@ const HomePage = () => {
     <main className="max-w-xl mx-auto bg-gradient-to-r from-blue-600 to-blue-500 rounded-4xl space-y-1">
       <ExpenseBalance balance={balance} income={income} expenses={expenses} />
 
-      <div className="relative overflow-hidden p-7 px-5 bg-white rounded-t-4xl h-full">
+      <div className="relative overflow-hidden p-7 px-5 bg-white dark:bg-gray-800 rounded-t-4xl h-full">
         <section className="flex flex-col dark:text-gray-50 space-x-3 w-full items-center justify-center mt-3  mb-6">
           <div className="flex items-center justify-center space-x-2 w-full mb-4">
             <button
@@ -35,7 +35,7 @@ const HomePage = () => {
             <button
               aria-label="Set Reminder"
               type="button"
-              className="dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
+              className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
             >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
@@ -45,7 +45,7 @@ const HomePage = () => {
             <button
               aria-label="Set Budget"
               type="button"
-              className="dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
+              className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
             >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
