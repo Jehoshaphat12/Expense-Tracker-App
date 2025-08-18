@@ -17,7 +17,7 @@ export default function SettingPage() {
       </h1>
 
       {/* Theme */}
-      <div className="bg-white dark:bg-gray-800 p-2 rounded-2xl shadow flex items-center justify-between">
+      <div className="bg-white dark:bg-gray-800 py-2 px-4 rounded-2xl shadow flex items-center justify-between">
         <h2 className="text-lg font-semibold dark:text-gray-50">Theme</h2>
         <button
           onClick={() => setDarkMode(!darkMode)}
