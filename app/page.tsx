@@ -20,7 +20,7 @@ const HomePage = () => {
     <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800 py-4 px-4">
       <h1 className="font-semibold text-xl dark:text-gray-50">Welcome, Jay-O</h1>
       <div className="bg-gray-400 text-gray-200 px-3 py-1 rounded-full">
-        <p className="font-semibold">J</p>
+        <Link href={"/settings"} className="font-semibold">J</Link>
       </div>
     </div>
     <div className="max-w-xl mx-auto bg-blue-600 dark:bg-gray-950 rounded-4xl space-y-1 overflow-y-auto mt-1">
