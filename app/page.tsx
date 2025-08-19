@@ -29,36 +29,36 @@ const HomePage = () => {
       <div className="relative overflow-y-auto p-7 px-3 bg-white dark:bg-gray-800 rounded-t-4xl h-full">
         <section className="flex flex-col dark:text-gray-50 space-x-3 w-full items-center justify-center mt-3  mb-6 px-5">
           <div className="flex items-center justify-center space-x-2 w-full mb-4">
-            <button
+            <Link
               aria-label="Add Savings"
-              type="button"
+              href="/savings-reminder-budget"
               className="bg-blue-600 w-full flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-blue-500 rounded-lg p-1 text-white">
                 <BiPlus size={20} />
               </span>
               <span className="text-white text-xs sm:text-sm ">Savings</span>
-            </button>
-            <button
+            </Link>
+            <Link
               aria-label="Set Reminder"
-              type="button"
+              href="/savings-reminder-budget"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <FaRegBell size={20} />
               </span>
               <span className="text-sm">Remind</span>
-            </button>
-            <button
+            </Link>
+            <Link
               aria-label="Set Budget"
-              type="button"
+              href="/savings-reminder-budget"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
                 <LuWallet size={20} />
               </span>
               <span className="text-sm">Budget</span>
-            </button>
+            </Link>
           </div>
           <div></div>
         </section>
