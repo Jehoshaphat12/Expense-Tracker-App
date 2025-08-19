@@ -20,13 +20,11 @@ export default function FinancePages() {
   const [savedAmount, setSavedAmount] = useState<number | "">("");
   const [savings, setSavings] = useLocalStorageState<
     { title: string; amount: number; saved: number }[]
-  >("savings",[]);
+  >("savings", []);
 
   // For edit functionality
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
-
-  
 
   // ----- Handlers -------------------
   const addOrEditSaving = (title: string, amount: number, saved: number) => {
@@ -71,7 +69,7 @@ export default function FinancePages() {
     setOpenSavings(false);
   };
 
-   function findCurrencySymbol(code: string) {
+  function findCurrencySymbol(code: string) {
     for (const curr of currencies) {
       if (curr.code === code) {
         return curr.symbol;
@@ -83,10 +81,7 @@ export default function FinancePages() {
     <div className="max-w-3xl  dark:bg-gray-800 dark:text-gray-50">
       {/* Tabs */}
       <div className="flex justify-around mb-0  py-2">
-        <Link
-          href={"#"}
-          className="px-4 py-2 font-semibold text-blue-500"
-        >
+        <Link href={"#"} className="px-4 py-2 font-semibold text-blue-500">
           Savings
         </Link>
         <Link
@@ -117,7 +112,6 @@ export default function FinancePages() {
                 {savings.map((s, i) => (
                   <li
                     key={i}
-                     onClick={() => handleEdit(i)}
                     className="flex items-center space-x-3 p-3 rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-50"
                   >
                     <div className="bg-gray-300 p-2 rounded-lg dark:bg-gray-700 dark:text-gray-50 text-gray-500">
