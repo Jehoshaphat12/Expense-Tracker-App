@@ -85,7 +85,7 @@ export default function FinancePages() {
       <div className="flex justify-around mb-0  py-2">
         <Link
           href={"#"}
-          className="px-4 py-2 font-semibold text-blue-500 dark:text-gray-400"
+          className="px-4 py-2 font-semibold text-blue-500"
         >
           Savings
         </Link>

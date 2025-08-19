@@ -33,8 +33,8 @@ export default function AddExpensePage() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <h2 className="text-2xl text-center mb-6">Add Expense</h2>
+      <div className="flex flex-col items-center px-8">
+        <h2 className="text-2xl text-center mb-6 pt-3">Add Expense</h2>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center space-y-4 w-full lg:max-w-[60%]"
@@ -49,7 +49,7 @@ export default function AddExpensePage() {
               placeholder="Expense Title"
               value={incomeTitle}
               onChange={(e) => setIncomeTitle(e.target.value)}
-              className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -63,7 +63,7 @@ export default function AddExpensePage() {
               placeholder="Expense Amount"
               value={incomeAmount}
               onChange={(e) => setIncomeAmount(e.target.value)}
-              className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -76,7 +76,7 @@ export default function AddExpensePage() {
               placeholder="Category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -90,7 +90,7 @@ export default function AddExpensePage() {
               value={note}
               onChange={(e) => setNote(e.target.value)}
               rows={4}
-              className="w-full bg-gray-200 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
+              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
             />
           </div>
 
@@ -99,7 +99,7 @@ export default function AddExpensePage() {
             aria-label="Add Income"
             className="w-full bg-blue-600 border-none py-2 rounded-2xl text-white mt-6"
           >
-            ADD INCOME
+            Add Expense
           </button>
         </form>
       </div>

@@ -42,8 +42,8 @@ export default function AddIncomePage() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h2 className="text-2xl text-center mb-6">Add Income</h2>
+    <div className="flex flex-col items-center px-8 ">
+      <h2 className="text-2xl text-center mb-6 pt-3">Add Income</h2>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center justify-center space-y-4 w-full lg:max-w-[60%]"
@@ -58,7 +58,7 @@ export default function AddIncomePage() {
             placeholder="Title"
             value={incomeTitle}
             onChange={(e) => setIncomeTitle(e.target.value)}
-            className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+            className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
             required
           />
         </div>
@@ -73,7 +73,7 @@ export default function AddIncomePage() {
             placeholder="Income Amount"
             value={incomeAmount}
             onChange={(e) => setIncomeAmount(e.target.value)}
-            className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+            className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
             required
           />
         </div>
@@ -87,7 +87,7 @@ export default function AddIncomePage() {
             placeholder="Category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full bg-gray-200 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+            className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
             required
           />
         </div>
@@ -102,7 +102,7 @@ export default function AddIncomePage() {
             value={note}
             onChange={(e) => setNote(e.target.value)}
             rows={4}
-            className="w-full bg-gray-200 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
+            className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
           />
         </div>
 
@@ -111,7 +111,7 @@ export default function AddIncomePage() {
           aria-label="Add Income"
           className="w-full bg-blue-600 border-none py-2 rounded-2xl text-white mt-6"
         >
-          ADD INCOME
+          Add Income
         </button>
       </form>
     </div>
