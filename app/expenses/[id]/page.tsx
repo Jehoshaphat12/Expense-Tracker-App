@@ -7,6 +7,15 @@ import DeleteDialogueBox from "@/app/components/DeleteDialogueBox";
 import { useCurrency } from "@/context/CurrencyContext";
 import { currencies } from "@/app/components/CountryCodes";
 
+
+ export function findCurrencySymbol(code: string) {
+    for (const curr of currencies) {
+      if (curr.code === code) {
+        return curr.symbol;
+      }
+    }
+  }
+
 export default function ExpenseDetail() {
   const { id } = useParams();
   const router = useRouter();

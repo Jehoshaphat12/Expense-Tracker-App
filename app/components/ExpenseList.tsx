@@ -154,17 +154,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
     }
   });
 
-  // useEffect(() => {
-  //   setExpenses(getExpensesFromStorage());
-  // }, []);
-
-  //   Object.defineProperty(String.prototype, 'capitalize', {
-  //   value: function() {
-  //     return this.charAt(0).toUpperCase() + this.slice(1);
-  //   },
-  //   enumerable: false
-  // });
-
+  
   return (
     <>
       {/* <Filters /> */}

@@ -31,7 +31,7 @@ const HomePage = () => {
           <div className="flex items-center justify-center space-x-2 w-full mb-4">
             <Link
               aria-label="Add Savings"
-              href="/savings-reminder-budget"
+              href="/savings-reminder-budget/savings"
               className="bg-blue-600 w-full flex items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-blue-500 rounded-lg p-1 text-white">
@@ -41,7 +41,7 @@ const HomePage = () => {
             </Link>
             <Link
               aria-label="Set Reminder"
-              href="/savings-reminder-budget"
+              href="/savings-reminder-budget/reminder"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
@@ -51,7 +51,7 @@ const HomePage = () => {
             </Link>
             <Link
               aria-label="Set Budget"
-              href="/savings-reminder-budget"
+              href="/savings-reminder-budget/budget"
               className="dark:text-gray-50 dark:bg-gray-800 dark:border-gray-500 flex w-full items-center justify-center space-x-2 px-4 py-3 shadow-lg rounded-3xl hover:-translate-y-0.5 transition cursor-pointer"
               >
               <span className="hidden sm:inline-block bg-gray-100 rounded-lg p-1 text-gray-600">
