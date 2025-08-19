@@ -29,7 +29,7 @@ export default function Navbar() {
     <Link
       href={href}
       className={`p-3 rounded-full ${
-        pathname === href ? "text-blue-700 dark:text-blue-950 bg-gray-100 dark:bg-gray-600" : ""
+        pathname === href ? "text-blue-700 dark:text-blue-400 bg-gray-100 dark:bg-gray-600" : ""
       }`}
     >
       {icon}
