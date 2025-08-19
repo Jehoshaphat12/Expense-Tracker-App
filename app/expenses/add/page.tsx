@@ -9,7 +9,7 @@ export default function AddExpensePage() {
   const { transactions } = useTransactions();
 
   return (
-    <div className="max-w-2xl mx-auto  bg-gray-100 rounded-2xl">
+    <div className="max-w-2xl mx-auto  bg-gray-100 dark:bg-gray-900 dark:text-gray-50 rounded-2xl">
       <div className=" py-3 pb-0.5">
         <h2 className="text-2xl text-center font-semibold mb-0.5">Add </h2>
       </div>
@@ -33,7 +33,7 @@ export default function AddExpensePage() {
         </div>
       </section>
 
-      <section className="bg-white p-6 px-5 rounded-4xl mt-6">
+      <section className="bg-white dark:bg-gray-800 dark:text-gray-50 p-6 px-5 rounded-4xl mt-6">
         
         <div className="h-[60dvh] flex flex-col overflow-y-auto overflow-x-hidden md:p-4">
           <ExpenseList transactions={transactions} />

@@ -3,11 +3,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsPiggyBank } from "react-icons/bs";
 import { Modal } from "../page";
-import { findCurrencySymbol } from "@/app/expenses/[id]/page";
 import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
-import { tree } from "next/dist/build/templates/app-page";
 import { useLocalStorageState } from "@/app/hook/useLocalStorageState";
+import { currencies } from "@/app/components/CountryCodes";
 
 export default function FinancePages() {
   const { currency } = useCurrency();
@@ -71,6 +70,14 @@ export default function FinancePages() {
     setSavedAmount("");
     setOpenSavings(false);
   };
+
+   function findCurrencySymbol(code: string) {
+    for (const curr of currencies) {
+      if (curr.code === code) {
+        return curr.symbol;
+      }
+    }
+  }
 
   return (
     <div className="max-w-3xl  dark:bg-gray-800 dark:text-gray-50">

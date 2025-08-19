@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsPiggyBank } from "react-icons/bs";
 import { Modal } from "../page";
-import { findCurrencySymbol } from "@/app/expenses/[id]/page";
 import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
 import { LuCalendarClock } from "react-icons/lu";
 import { useLocalStorageState } from "@/app/hook/useLocalStorageState";
+import { currencies } from "@/app/components/CountryCodes";
 
 
 export default function BudgetsPage() {
@@ -88,6 +88,14 @@ export default function BudgetsPage() {
 
   function isOverdue(dueperiod: string) {
     return Date.now() > new Date(dueperiod).getTime();
+  }
+
+   function findCurrencySymbol(code: string) {
+    for (const curr of currencies) {
+      if (curr.code === code) {
+        return curr.symbol;
+      }
+    }
   }
 
   return (
