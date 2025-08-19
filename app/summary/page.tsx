@@ -165,7 +165,7 @@ export default function TransactionSummary() {
               <li
                 key={key}
                 onClick={() => setFilter(key)}
-                className="hover:bg-gray-100 p-3 px-4 text-nowrap"
+                className="hover:bg-gray-100 dark:hover:bg-gray-700 p-3 px-4 text-nowrap"
               >
                 {label}
               </li>
