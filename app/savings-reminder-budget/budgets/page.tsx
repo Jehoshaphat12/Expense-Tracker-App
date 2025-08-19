@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { BsPiggyBank } from "react-icons/bs";
+import { useState } from "react";
 import { Modal } from "@/app/components/Modal";
 import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
