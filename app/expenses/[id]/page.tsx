@@ -46,13 +46,13 @@ export default function ExpenseDetail() {
     );
   }
 
-  function findCurrencySymbol(code: string) {
-    for (const curr of currencies) {
-      if (curr.code === code) {
-        return curr.symbol;
-      }
-    }
-  }
+  // function findCurrencySymbol(code: string) {
+  //   for (const curr of currencies) {
+  //     if (curr.code === code) {
+  //       return curr.symbol;
+  //     }
+  //   }
+  // }
 
   return (
     <div className="p-6 rounded-2xl bg-gray-100 dark:bg-gray-900 dark:text-gray-50  max-w-xl mx-auto">

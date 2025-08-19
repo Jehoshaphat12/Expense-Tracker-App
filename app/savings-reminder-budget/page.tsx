@@ -217,7 +217,7 @@ export default function FinancePages() {
         onClose={() => setOpenSavings(false)}
         title="Add Savings Goal"
       >
-        <form className="space-y-4" onSubmit={() => addSaving()}>
+        <form className="space-y-4" >
           <input
             type="text"
             placeholder="Goal Name"
