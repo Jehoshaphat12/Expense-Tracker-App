@@ -8,7 +8,7 @@ import { useCurrency } from "@/context/CurrencyContext";
 import { currencies } from "@/app/components/CountryCodes";
 
 
- export function findCurrencySymbol(code: string) {
+ export const findCurrencySymbol = (code: string) => {
     for (const curr of currencies) {
       if (curr.code === code) {
         return curr.symbol;
