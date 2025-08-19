@@ -20,10 +20,7 @@ import { sortList } from "../components/ExpenseList";
 import { IoIosMore } from "react-icons/io";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-
-
-
-
+import autoTable from "jspdf-autotable";
 
 // Colors
 const COLORS = ["#22c55e", "#ef4444"]; // green for income, red for expenses
@@ -66,8 +63,7 @@ function getDateRange(filter: string) {
 
 export default function TransactionSummary() {
   const { transactions, balance, expenses, income } = useTransactions();
-  const [filter, setFilter] = useState("thisMonth"); // default view
-  
+  const [filter, setFilter] = useState("this Month"); // default view
 
   // Filter transactions
   const { start, end } = getDateRange(filter);
@@ -75,17 +71,6 @@ export default function TransactionSummary() {
     const date = new Date(t.date);
     return date >= start && date <= end;
   });
-
-//   // Totals
-//   const income = filteredTransactions
-//     .filter((t) => t.type === "income")
-//     .reduce((sum, t) => sum + t.amount, 0);
-
-//   const expenses = filteredTransactions
-//     .filter((t) => t.type === "expense")
-//     .reduce((sum, t) => sum + t.amount, 0);
-
-//   const balance = income - expenses;
 
   // Pie Data
   const pieData = [
@@ -96,51 +81,98 @@ export default function TransactionSummary() {
   // Line Data
   const lineData = filteredTransactions.map((t) => ({
     date: new Date(t.date).toLocaleDateString(),
-    amount: t.amount
+    amount: t.amount,
   }));
 
+  //   EXPORT TO PDF FUNCTION
+  const exportPDF = () => {
+    const doc = new jsPDF();
 
+    // Getting page width for centering header text
+    const pageWidth = doc.internal.pageSize.getWidth();
 
-//   EXPORT TO PDF FUNCTION
-const exportPDF = async () => {
-    const element = document.getElementById("report-section")
-    if(!element) return
+    // Getting ReportDate
+    const reportDate = filter.charAt(0).toUpperCase() + filter.slice(1);
+    doc.setFontSize(30);
+    doc.setFont("Montserrat", "bold");
+    doc.text(`${reportDate}'s Transactions Report`, pageWidth / 2, 20, {
+      align: "center",
+    });
 
-    const canvas = await html2canvas(element)
-    const imgData = canvas.toDataURL("image/png")
+    // Styling the table
+    autoTable(doc, {
+      startY: 30, // 👈 Push table down to leave space after title
+      head: [["Date", "Title", "Amount"]],
+      body: filteredTransactions.map((t) => [t.date, t.title, t.amount]),
 
-    const pdf = new jsPDF("p", "mm", "a4")
-    const imgProps = pdf.getImageProperties(imgData)
-    const pdfWidth = pdf.internal.pageSize.getWidth()
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width
+      headStyles: {
+        fillColor: [41, 128, 185], // blue background
+        textColor: [255, 255, 255], // white text
+        fontStyle: "bold",
+        halign: "center",
+      },
 
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight)
-    pdf.save("Transaction_Report.pdf")
-}
+      alternateRowStyles: {
+        fillColor: [245, 245, 245], // light grey for alternating rows
+      },
+      styles: {
+        font: "helvetica",
+        fontSize: 11,
+      },
+    });
+
+    // Lets generate dynamic file name
+    let filename = "Transactions.pdf";
+
+    if (filter === "today") {
+      filename = "Today-Transactions.pdf";
+    } else if (filter === "yesterday") {
+      filename = "Yesterday-Transactions.pdf";
+    } else if (filter === "this Week") {
+      filename = "This-Week-Transactions.pdf";
+    } else if (filter === "last Week") {
+      filename = "Last-Week-Transactions.pdf";
+    } else if (filter === "this Month") {
+      const monthName = new Date().toLocaleString("default", { month: "long" });
+      filename = `${monthName}-Transactions.pdf`;
+    } else if (filter === "all") {
+      filename = "All-Transactions.pdf";
+    }
+
+    doc.save(filename);
+  };
 
   return (
-    <div className="p-4 space-y-6 pb-30 dark:bg-gray-800 dark:text-gray-50">
-         {/* Filter Bar */}
-          <div className="flex items-center justify-between mb-4 px-1">
-            <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
-              {filter}&apos;s Analysis
-            </h3>
-            <div className="sort relative group">
-              <button
-                aria-label="Sort Options"
-                type="button"
-                className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
-                >
-                <IoIosMore size={30} className=" cursor-pointer" />
-              </button>
-              <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg  space-y-1">
-                {sortList.map(({key, label}) => (
-                  <li key={key} onClick={() => setFilter(key)} className="hover:bg-gray-100 p-3 px-4 text-nowrap">{label}</li>
-                  
-                ))}
-              </ul>
-            </div>
-          </div>
+    <div
+      id="report-section"
+      className="p-4 space-y-6 pb-30 dark:bg-gray-800 dark:text-gray-50"
+    >
+      {/* Filter Bar */}
+      <div className="flex items-center justify-between mb-4 px-1">
+        <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
+          {filter}&apos;s Analysis
+        </h3>
+        <div className="sort relative group">
+          <button
+            aria-label="Sort Options"
+            type="button"
+            className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
+          >
+            <IoIosMore size={30} className=" cursor-pointer" />
+          </button>
+          <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg  space-y-1">
+            {sortList.map(({ key, label }) => (
+              <li
+                key={key}
+                onClick={() => setFilter(key)}
+                className="hover:bg-gray-100 p-3 px-4 text-nowrap"
+              >
+                {label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-3 gap-4">
@@ -171,8 +203,11 @@ const exportPDF = async () => {
               dataKey="value"
               label
             >
-              {pieData.map((entry,i) => (
-                <Cell key={`cell-${entry.name}`} fill={COLORS[i % COLORS.length]} />
+              {pieData.map((entry, i) => (
+                <Cell
+                  key={`cell-${entry.name}`}
+                  fill={COLORS[i % COLORS.length]}
+                />
               ))}
             </Pie>
             <Tooltip />
@@ -186,8 +221,8 @@ const exportPDF = async () => {
         <ResponsiveContainer>
           <LineChart data={lineData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" className="text-xs"/>
-            <YAxis className="text-sm"/>
+            <XAxis dataKey="date" className="text-xs" />
+            <YAxis className="text-sm" />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="amount" stroke="#3b82f6" />
@@ -199,8 +234,11 @@ const exportPDF = async () => {
 
       {/* Export Buttons */}
       <div className="w-full flex gap-3 mb-4">
-        <button onClick={exportPDF} className="w-full mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 cursor-pointer">
-            Export PDF
+        <button
+          onClick={exportPDF}
+          className="w-full mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600 cursor-pointer"
+        >
+          Export PDF
         </button>
       </div>
     </div>
