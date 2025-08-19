@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsPiggyBank } from "react-icons/bs";
-import { Modal } from "../page";
+import { Modal } from "@/app/components/Modal";
 import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
 import { LuCalendarClock } from "react-icons/lu";
