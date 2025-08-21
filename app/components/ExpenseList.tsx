@@ -34,6 +34,7 @@ export const sortList = [
 export default function ExpenseList({ transactions }: ExpenseListProps) {
   // const { transactions } = useTransactions();
 
+  const [showSort, setShowSort] = useState(false)
   const { currency } = useCurrency();
   const [filter, setFilter] = useState("today");
 
@@ -167,15 +168,19 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
           <button
             aria-label="Sort Options"
             type="button"
+            onClick={() => setShowSort(!showSort)}
             className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
           >
             <IoIosMore size={30} className="text-gray-800 dark:text-gray-50 cursor-pointer" />
           </button>
-          <ul className="absolute z-100 hidden group-hover:block right-4 top-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg  space-y-1">
+          {showSort && (
+          <ul className="absolute z-100 right-4 top-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg  space-y-1">
             {sortList.map(({ key, label }) => (
               <li
                 key={key}
-                onClick={() => setFilter(key)}
+                onClick={() => {
+                  setShowSort(!showSort)
+                  setFilter(key)}}
                 className="hover:bg-gray-100 dark:hover:bg-gray-700 p-3 px-4 text-nowrap"
               >
                 {label}
@@ -186,6 +191,8 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
               <Link href={"/expenses"}>More...</Link>
             </li>
           </ul>
+
+          )}
         </div>
       </div>
 
