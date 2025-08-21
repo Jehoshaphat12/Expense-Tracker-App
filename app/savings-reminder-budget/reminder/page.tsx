@@ -185,7 +185,7 @@ export default function RemindersPage() {
                         />
                       </div>
                       <div className="flex justify-between items-center text-gray-400  text-sm">
-                        <span>
+                        <span className="text-xs">
                           {r.amount && (
                             <>
                               {findCurrencySymbol(currency)}{" "}
@@ -194,7 +194,7 @@ export default function RemindersPage() {
                           )}
                         </span>
                         <p
-                          className={`text-sm ${
+                          className={`text-xs ${
                             isOverdue(r.date) ? "text-red-600" : ""
                           }`}
                         >
@@ -202,9 +202,9 @@ export default function RemindersPage() {
                             ? "Overdue"
                             : `${Math.round(
                                 getReminderProgress(r.date, r.createdAt)
-                              )}% time passed`}
+                              )}% `}
                         </p>
-                        <span>Due on: {r.date}</span>
+                        <span className="text-xs">Due on: {new Date(r.date).toLocaleString()}</span>
                       </div>
                     </div>
                   </li>
@@ -258,7 +258,7 @@ export default function RemindersPage() {
           <input
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            type="date"
+            type="datetime-local"
             placeholder="Amount Saved"
             required
             className="w-full p-2 px-3 rounded-xl bg-gray-200 dark:bg-gray-900 dark:text-gray-50"

@@ -49,7 +49,7 @@ export default function AddExpensePage() {
               placeholder="Expense Title"
               value={incomeTitle}
               onChange={(e) => setIncomeTitle(e.target.value)}
-              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-800 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -63,7 +63,7 @@ export default function AddExpensePage() {
               placeholder="Expense Amount"
               value={incomeAmount}
               onChange={(e) => setIncomeAmount(e.target.value)}
-              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-800 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -76,7 +76,7 @@ export default function AddExpensePage() {
               placeholder="Category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
+              className="w-full bg-gray-200 dark:bg-gray-800 dark:text-gray-50 px-4 py-2 rounded-xl focus:outline-2 outline-blue-600"
               required
             />
           </div>
@@ -90,7 +90,7 @@ export default function AddExpensePage() {
               value={note}
               onChange={(e) => setNote(e.target.value)}
               rows={4}
-              className="w-full bg-gray-200 dark:bg-gray-900 dark:text-gray-50 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
+              className="w-full bg-gray-200 dark:bg-gray-800 dark:text-gray-50 focus:outline-2 outline-blue-600 px-4 py-3 rounded-2xl"
             />
           </div>
 
