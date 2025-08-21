@@ -169,7 +169,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
             aria-label="Sort Options"
             type="button"
             onClick={() => setShowSort(!showSort)}
-            className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 transition"
+            className="flex items-center p-0.5 px-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-500 transition"
           >
             <IoIosMore size={30} className="text-gray-800 dark:text-gray-50 cursor-pointer" />
           </button>
