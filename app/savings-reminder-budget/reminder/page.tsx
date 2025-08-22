@@ -259,7 +259,7 @@ export default function RemindersPage() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
             type="datetime-local"
-            placeholder="Amount Saved"
+            placeholder="Due Date"
             required
             className="w-full p-2 px-3 rounded-xl bg-gray-200 dark:bg-gray-900 dark:text-gray-50"
           />

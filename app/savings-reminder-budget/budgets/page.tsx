@@ -170,8 +170,8 @@ export default function BudgetsPage() {
                       key={i}
                       className="flex items-center space-x-3 p-3 rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-50"
                     >
-                      <div className="bg-gray-300 p-2 rounded-lg dark:bg-gray-700 text-gray-500">
-                        <AiOutlinePieChart size={20}/>
+                      <div className="bg-gray-300 p-2 rounded-lg dark:bg-gray-700 dark:text-gray-50 text-gray-500">
+                        <AiOutlinePieChart size={22}/>
                       </div>
                       <div className="flex flex-col w-full">
                         <div className="flex justify-between items-center">
@@ -291,6 +291,7 @@ export default function BudgetsPage() {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               type="datetime-local"
+              placeholder="Start Date"
               required
               className="w-1/2 p-2 px-3 rounded-xl bg-gray-200 dark:bg-gray-900 dark:text-gray-50"
             />
@@ -298,6 +299,7 @@ export default function BudgetsPage() {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               type="datetime-local"
+              placeholder="End Date"
               required
               className="w-1/2 p-2 px-3 rounded-xl bg-gray-200 dark:bg-gray-900 dark:text-gray-50"
             />
@@ -321,7 +323,7 @@ export default function BudgetsPage() {
         <div className="flex justify-end space-x-3">
           <button
             onClick={() => setOpenDelete(false)}
-            className="px-4 py-2 bg-gray-300 rounded-lg"
+            className="px-4 py-2 bg-gray-300 dark:text-gray-700 rounded-lg"
           >
             Cancel
           </button>

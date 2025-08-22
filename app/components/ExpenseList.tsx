@@ -187,7 +187,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
               </li>
             ))}
 
-            <li className="hover:bg-gray-100 p-3 px-4">
+            <li className="hover:bg-gray-100 dark:hover:bg-gray-500 p-3 px-4">
               <Link href={"/expenses"}>More...</Link>
             </li>
           </ul>
