@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useTransactions } from "@/app/hook/useTransactions";
+import toast from "react-hot-toast";
 
 export default function EditTransactionPage() {
   const { id } = useParams();
@@ -30,17 +31,22 @@ export default function EditTransactionPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!transaction) return;
+    try {
+      updateTransaction({
+        ...transaction,
+        title,
+        amount: amount,
+        category,
+        date: new Date(date).toISOString(),
+        note,
+      });
+      toast.success("Transaction updated successfully.");
+      router.push("/expenses"); // TODO: show a toast
 
-    updateTransaction({
-      ...transaction,
-      title,
-      amount: amount,
-      category,
-      date: new Date(date).toISOString(),
-      note,
-    });
-
-    router.push("/expenses"); // TODO: show a toast
+    } catch (err) {
+      toast.error("Failed to update transaction. Try again.");
+      console.error("Update error:", err);
+    }
   };
 
   if (!transaction) {

@@ -7,6 +7,7 @@ import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
 import { useLocalStorageState } from "@/app/hook/useLocalStorageState";
 import { currencies } from "@/app/components/CountryCodes";
+import toast from "react-hot-toast";
 
 export default function FinancePages() {
   const { currency } = useCurrency();
@@ -28,45 +29,60 @@ export default function FinancePages() {
 
   // ----- Handlers -------------------
   const addOrEditSaving = (title: string, amount: number, saved: number) => {
-    if (editingIndex !== null) {
-      // Edit mode
-      const updated = [...savings];
-      updated[editingIndex] = { title, amount, saved };
-      setSavings(updated);
-      setEditingIndex(null);
-    } else {
-      // Add new
-      setSavings([...savings, { title, amount, saved }]);
+    try {
+      if (editingIndex !== null) {
+        // Edit mode
+        const updated = [...savings];
+        updated[editingIndex] = { title, amount, saved };
+        setSavings(updated);
+        setEditingIndex(null);
+        toast.success("Savings edited successfully.")
+      } else {
+        // Add new
+        setSavings([...savings, { title, amount, saved }]);
+        toast.success("Savings added successfully.")
+      }
+    } catch (err) {
+      toast.error("Failed to add or edit savings. Try again.")
     }
   };
 
   const handleDelete = () => {
-    if (deleteIndex !== null) {
-      const updated = savings.filter((_, i) => i !== deleteIndex);
-      setSavings(updated);
-      setDeleteIndex(null);
-      setOpenDelete(false);
+    try {
+      if (deleteIndex !== null) {
+        const updated = savings.filter((_, i) => i !== deleteIndex);
+        setSavings(updated);
+        setDeleteIndex(null);
+        setOpenDelete(false);
+      }
+      toast.success("Savings deleted successfully.")
+    } catch (err) {
+      toast.error("Failed to delete savings. Try again.")
     }
   };
 
   const handleEdit = (index: number) => {
-    const s = savings[index];
-    setTitle(s.title);
-    setAmount(s.amount);
-    setSavedAmount(s.saved);
-    setEditingIndex(index);
-    setOpenSavings(true);
+    
+      const s = savings[index];
+      setTitle(s.title);
+      setAmount(s.amount);
+      setSavedAmount(s.saved);
+      setEditingIndex(index);
+      setOpenSavings(true);
+      toast.success("Edit mode activated.")
+
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!title || !amount) return;
-    addOrEditSaving(title, Number(amount), Number(savedAmount) || 0);
-    // Reset form
-    setTitle("");
-    setAmount("");
-    setSavedAmount("");
-    setOpenSavings(false);
+
+      if (!title || !amount) return;
+      addOrEditSaving(title, Number(amount), Number(savedAmount) || 0);
+      // Reset form
+      setTitle("");
+      setAmount("");
+      setSavedAmount("");
+      setOpenSavings(false);
   };
 
   function findCurrencySymbol(code: string) {

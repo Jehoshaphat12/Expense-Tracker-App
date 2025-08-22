@@ -10,6 +10,7 @@ import { currencies } from "@/app/components/CountryCodes";
 import { useTransactions } from "@/app/hook/useTransactions";
 import { GiPieChart } from "react-icons/gi";
 import { AiOutlinePieChart } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 interface Budget {
   title: string;
@@ -45,32 +46,47 @@ export default function BudgetsPage() {
     endDate: string,
     limit?: number
   ) => {
-    if (editingIndex !== null) {
-      // Edit mode
-      const updated = [...budgets];
-      updated[editingIndex] = {
-        ...updated[editingIndex],
-        title,
-        limit,
-        startDate,
-        endDate,
-      };
-      setBudgets(updated);
-      setEditingIndex(null);
-    } else {
-      // Add new
-      setBudgets([
-        ...budgets,
-        { title, limit, startDate, endDate, createdAt: new Date().toISOString() },
-      ]);
+
+    try {
+      if (editingIndex !== null) {
+        // Edit mode
+        const updated = [...budgets];
+        updated[editingIndex] = {
+          ...updated[editingIndex],
+          title,
+          limit,
+          startDate,
+          endDate,
+        };
+        setBudgets(updated);
+        setEditingIndex(null);
+        toast.success("Budget edited successfully.");
+      } else {
+        // Add new
+        setBudgets([
+          ...budgets,
+          { title, limit, startDate, endDate, createdAt: new Date().toISOString() },
+        ]);
+        toast.success("Budget added successfully.");
+      }
+
+    } catch (err) {
+      toast.error("Failed to add or edit budget. Try again.");
+      console.error("Budget error:", err);
     }
   };
 
   const handleDelete = () => {
-    if (deleteIndex !== null) {
-      setBudgets(budgets.filter((_, i) => i !== deleteIndex));
-      setDeleteIndex(null);
-      setOpenDelete(false);
+    try {
+      if (deleteIndex !== null) {
+        setBudgets(budgets.filter((_, i) => i !== deleteIndex));
+        setDeleteIndex(null);
+        setOpenDelete(false);
+      }
+      toast.success("Budget deleted successfully.");
+    } catch (err) {
+      toast.error("Failed to delete budget. Try again.");
+      console.error("Delete error:", err);
     }
   };
 

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { CurrencyProvider } from "@/context/CurrencyContext";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         <CurrencyProvider>
           <Navbar />
           <main className="dark:bg-gray-900 dark:text-gray-50 h-[100dvh] max-w-2xl mx-auto">{children}</main>
+          <Toaster position="top-right" reverseOrder={false}/>
         </CurrencyProvider>
       </body>
     </html>

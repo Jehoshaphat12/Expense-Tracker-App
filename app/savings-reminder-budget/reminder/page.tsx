@@ -7,6 +7,7 @@ import { IoIosMore } from "react-icons/io";
 import { LuCalendarClock } from "react-icons/lu";
 import { useLocalStorageState } from "@/app/hook/useLocalStorageState";
 import { currencies } from "@/app/components/CountryCodes";
+import toast from "react-hot-toast";
 
 
 export default function RemindersPage() {
@@ -30,27 +31,41 @@ export default function RemindersPage() {
 
   // ----- Handlers -------------------
   const addOrEditReminder = (title: string, date: string, amount?: number) => {
-    if (editingIndex !== null) {
-      // Edit mode
-      const updated = [...reminders];
-      updated[editingIndex] = { ...updated[editingIndex], title, amount, date };
-      setReminders(updated);
-      setEditingIndex(null);
-    } else {
-      // Add new
-      setReminders([
-        ...reminders,
-        { title, amount, date, createdAt: new Date().toISOString() },
-      ]);
+    try {
+      if (editingIndex !== null) {
+        // Edit mode
+        const updated = [...reminders];
+        updated[editingIndex] = { ...updated[editingIndex], title, amount, date };
+        setReminders(updated);
+        setEditingIndex(null);
+        toast.success("Reminder edited successfully.");
+      } else {
+        // Add new
+        setReminders([
+          ...reminders,
+          { title, amount, date, createdAt: new Date().toISOString() },
+        ]);
+        toast.success("Reminder added successfully.");
+      }
+
+    } catch (err) {
+      toast.error("Failed to add or edit reminder. Try again.");
+      console.error("Add/Edit error:", err);
     }
   };
 
   const handleDelete = () => {
-    if (deleteIndex !== null) {
-      const updated = reminders.filter((_, i) => i !== deleteIndex);
-      setReminders(updated);
-      setDeleteIndex(null);
-      setOpenDelete(false);
+    try {
+      if (deleteIndex !== null) {
+        const updated = reminders.filter((_, i) => i !== deleteIndex);
+        setReminders(updated);
+        setDeleteIndex(null);
+        setOpenDelete(false);
+      }
+      toast.success("Reminder deleted successfully.");
+    } catch (err) {
+      toast.error("Failed to delete reminder. Try again.");
+      console.error("Delete error:", err);
     }
   };
 

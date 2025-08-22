@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useEffect, useRef, useState } from "react";
+import toast from "react-hot-toast";
 
 export interface Transaction {
   id: number;
@@ -54,11 +55,22 @@ export function useTransactions() {
   }, [transactions]);
 
   const addTransaction = (transaction: Transaction) => {
-    setTransactions((prev) => [transaction, ...prev]);
+    try {
+      setTransactions((prev) => [transaction, ...prev]);
+      toast.success("Transaction added successfully.")
+    } catch (err) {
+      toast.error("Failed to add transaction. Try again.")
+    }
   };
-
+  
   const deleteTransaction = (id: number) => {
-    setTransactions((prev) => prev.filter((t) => t.id !== id));
+    try {
+      setTransactions((prev) => prev.filter((t) => t.id !== id));
+      toast.success("Transaction deleted successfully.")
+    } catch (err) {
+      toast.error("Failed to delete transaction. Try again.")
+
+    }
   };
 
   const income = transactions
