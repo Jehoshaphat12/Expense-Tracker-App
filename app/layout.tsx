@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { Toaster } from "react-hot-toast";
+import NotificationsProvider from "./components/NotificationsProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,15 +26,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CurrencyProvider>
+          <NotificationsProvider>
+
           <Navbar />
           <main className="dark:bg-gray-900 dark:text-gray-50 h-[100dvh] max-w-2xl mx-auto">{children}</main>
           <Toaster position="top-right" reverseOrder={false}/>
+          </NotificationsProvider>
         </CurrencyProvider>
       </body>
     </html>
