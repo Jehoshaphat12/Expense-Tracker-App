@@ -51,7 +51,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  })
+  }, [])
 
   const iconsList = [
     {
@@ -179,7 +179,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
         <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
           {filter}&apos;s Entries
         </h3>
-        <div ref={menuRef}  className="sort relative group">
+        <div className="sort relative group">
           <button
             aria-label="Sort Options"
             type="button"
@@ -189,7 +189,7 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
             <IoIosMore size={30} className="text-gray-800 dark:text-gray-50 cursor-pointer" />
           </button>
           {showSort && (
-          <ul className="absolute z-100 right-4 top-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg  space-y-1">
+          <ul ref={menuRef}  className="absolute z-100 right-4 top-5 bg-white dark:bg-gray-800 shadow-lg rounded-lg  space-y-1">
             {sortList.map(({ key, label }) => (
               <li
                 key={key}
