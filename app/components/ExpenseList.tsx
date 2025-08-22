@@ -8,7 +8,7 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { currencies } from "./CountryCodes";
 import { useCurrency } from "@/context/CurrencyContext";
 import { FaRegHandshake } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoIosMore } from "react-icons/io";
 
 interface Transaction {
@@ -35,8 +35,23 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
   // const { transactions } = useTransactions();
 
   const [showSort, setShowSort] = useState(false)
+  const menuRef = useRef<HTMLUListElement | null>(null);
   const { currency } = useCurrency();
   const [filter, setFilter] = useState("today");
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowSort(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  })
 
   const iconsList = [
     {
@@ -160,11 +175,11 @@ export default function ExpenseList({ transactions }: ExpenseListProps) {
     <>
       {/* <Filters /> */}
       {/* Filter Bar */}
-      <div className="flex items-center bg-white dark:bg-gray-800 dark:text-gray-50 justify-between mb-4 px-4">
+      <div  className="flex items-center bg-white dark:bg-gray-800 dark:text-gray-50 justify-between mb-4 px-4">
         <h3 className="text-md  font-semibold mb-2 first-letter:capitalize">
           {filter}&apos;s Entries
         </h3>
-        <div className="sort relative group">
+        <div ref={menuRef}  className="sort relative group">
           <button
             aria-label="Sort Options"
             type="button"
