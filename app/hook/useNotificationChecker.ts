@@ -19,6 +19,14 @@ interface Budget {
     spent: number
 }
 
+interface transaction {
+    amount: number
+    category: string
+    title: string
+    date: string
+
+}
+
 export function useNotificationChecker() {
     useEffect(() => {
         const checkNotifications = () => {
@@ -58,12 +66,12 @@ export function useNotificationChecker() {
 
                     // Filter transactions that fall within the budget period and Category (title match)
                     const budgetSpent = transactions
-                        .filter((tx: any) => {
+                        .filter((tx: transaction) => {
                             const date = new Date(tx.date)
                             return date >= start && date <= end && 
                             tx.category.toLowerCase().includes(budget.title.toLocaleLowerCase())
                         })
-                        .reduce((sum: number, tx: any) => sum + Number(tx.amount), 0)
+                        .reduce((sum: number, tx: transaction) => sum + Number(tx.amount), 0)
 
                         const remaining = budget.limit - budgetSpent
 
