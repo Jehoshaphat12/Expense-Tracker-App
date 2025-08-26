@@ -4,13 +4,32 @@ import { useState } from "react";
 import { useCurrency } from "@/context/CurrencyContext";
 import { currencies } from "../components/CountryCodes";
 import { BiMoon, BiSun } from "react-icons/bi";
+import { Modal } from "../components/Modal";
+import toast from "react-hot-toast";
 
 export default function SettingPage() {
   const { currency, setCurrency } = useCurrency();
   const [darkMode, setDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(true);
 
+  const [openDelete, setOpenDelete] = useState(false)
+
+  const deleteStoredData = () => {
+    try {
+      localStorage.setItem("transactions", "")
+      toast.success("All transactions deleted successfully!")
+    } catch (err) {
+      toast.error("Failed to delete all transactions. Try again.")
+    }
+  }
+
+  const handleDelete = () => {
+    deleteStoredData()
+    setOpenDelete(!openDelete)
+  }
+
   return (
+    <>
     <div className="max-w-2xl mx-auto py-4 px-5 space-y-6 pb-30 dark:bg-gray-900">
       <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
         Settings
@@ -90,7 +109,7 @@ export default function SettingPage() {
         <h2 className="text-lg font-semibold mb-2 dark:text-gray-50">
           Data Management
         </h2>
-        <button className="w-full px-4 py-2 bg-red-600 text-white rounded-lg">
+        <button onClick={() => setOpenDelete(true)} className="w-full px-4 py-2 bg-red-600 text-white rounded-lg">
           Clear All Transactions
         </button>
         <button className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg">
@@ -98,5 +117,29 @@ export default function SettingPage() {
         </button>
       </div>
     </div>
+
+    {/* Delete Confirmation Modal */}
+      <Modal
+        isOpen={openDelete}
+        onClose={() => setOpenDelete(false)}
+        title="Confirm Delete"
+      >
+        <p className="mb-4">Are you sure you want to Clear all transactions?</p>
+        <div className="flex justify-end space-x-3">
+          <button
+            onClick={() => setOpenDelete(false)}
+            className="px-4 py-2 bg-gray-300 rounded-lg"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleDelete}
+            className="px-4 py-2 bg-red-500 text-white rounded-lg"
+          >
+            Delete
+          </button>
+        </div>
+      </Modal>
+    </>
   );
 }

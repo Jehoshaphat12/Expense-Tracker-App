@@ -21,5 +21,7 @@ export function useLocalStorageState<T>(key: string, defaultValue: T) {
     }
   }, [key, state]);
 
-  return [state, setState] as const;
+  
+
+  return [state, setState, ] as const ;
 }

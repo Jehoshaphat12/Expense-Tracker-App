@@ -5,6 +5,7 @@ import { LuWallet } from "react-icons/lu";
 import ChangeCurrency from "./ChangeCurrency";
 import { useCurrency } from "@/context/CurrencyContext";
 import { currencies } from "./CountryCodes";
+import Link from "next/link";
 
 interface ExpenseBalanceProps {
   balance: number;
@@ -120,7 +121,7 @@ const ExpenseBalance = ({ balance, income, expenses }: ExpenseBalanceProps) => {
         </p>
       </div>
       <div className="flex flex-row w-full  space-x-3 mt-4">
-        <div className="w-full text-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-0.5 transition">
+        <Link href={"/income"} className="w-full text-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-0.5 transition">
           <h2 className="flex space-x-3 items-center text-xs text-nowrap text-gray-500 sm:text-sm font-semibold">
             <LuWallet /> <span>Total Income</span>
           </h2>
@@ -131,8 +132,8 @@ const ExpenseBalance = ({ balance, income, expenses }: ExpenseBalanceProps) => {
               maximumFractionDigits: 2,
             })}
           </p>
-        </div>
-        <div className="w-full text-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-0.5 transition">
+        </Link>
+        <Link href={"/expense"} className="w-full text-center p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:-translate-y-0.5 transition">
           <h2 className="flex space-x-3 items-center text-xs text-nowrap text-gray-500 sm:text-sm font-semibold">
             <LuWallet /> <span>Total Expenses</span>
           </h2>
@@ -143,7 +144,7 @@ const ExpenseBalance = ({ balance, income, expenses }: ExpenseBalanceProps) => {
               maximumFractionDigits: 2,
             })}
           </p>
-        </div>
+        </Link>
       </div>
     </section>
   );
