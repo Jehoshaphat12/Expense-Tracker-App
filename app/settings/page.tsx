@@ -6,6 +6,7 @@ import { currencies } from "../components/CountryCodes";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { Modal } from "../components/Modal";
 import toast from "react-hot-toast";
+import NotificationSettingsForm from "../components/NotificationSettingsForm";
 
 export default function SettingPage() {
   const { currency, setCurrency } = useCurrency();
@@ -88,7 +89,7 @@ export default function SettingPage() {
 
       {/* Notifications */}
       <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow flex items-center justify-between">
-        <h2 className="text-lg font-semibold dark:text-gray-50">
+        {/* <h2 className="text-lg font-semibold dark:text-gray-50">
           Notifications
         </h2>
         <label className="flex items-center gap-2 cursor-pointer">
@@ -101,7 +102,8 @@ export default function SettingPage() {
           <span className="dark:text-gray-50">
             {notifications ? "Enabled" : "Disabled"}
           </span>
-        </label>
+        </label> */}
+        <NotificationSettingsForm />
       </div>
 
       {/* Data Management */}

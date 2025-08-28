@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import toast from "react-hot-toast"
+import { useNotificationSettings } from "./useNotificationSettings"
 
 interface Reminder {
     id: number
@@ -27,7 +28,23 @@ interface transaction {
 
 }
 
+function getIntervalMs(interval: string) {
+    switch(interval) {
+        case "5min": return 5 * 60 * 1000
+        case "15min": return 15 * 60 * 1000
+        case "30min": return 30 * 60 * 1000
+        case "1hr": return 60 * 60 * 1000
+        case "6hr": return 6 * 60 * 60 * 1000
+        case "12hr": return 12 * 60 * 60 * 1000
+        case "24hr": return 24 * 60 * 60 * 1000
+        default: return 60 * 60 * 1000 // default to 1 hour
+    }
+}
+
 export function useNotificationChecker() {
+
+    const { settings } = useNotificationSettings()
+    
     useEffect(() => {
         const checkNotifications = () => {
             try {
@@ -126,8 +143,12 @@ export function useNotificationChecker() {
 
         // Run immediately and then every minute
         checkNotifications()
-        const interval = setInterval(checkNotifications, 60000)
 
-        return () => clearInterval(interval)
-    }, [])
+        const intervalMs = getIntervalMs(settings.interval)
+        if(settings.enableReminders) {
+            const interval = setInterval(checkNotifications, intervalMs)
+            return () => clearInterval(interval)
+        }
+       
+    }, [settings,])
 }

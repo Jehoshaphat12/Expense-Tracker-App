@@ -3,11 +3,12 @@
 import { ReactNode, useEffect } from "react";
 import { useNotificationChecker } from "../hook/useNotificationChecker";
 
-interface NotificationsProviderProps {
+
+interface NotificationProviderProps {
   children: ReactNode;
 }
 
-export default function NotificationsProvider({ children }: NotificationsProviderProps) {
+export default function NotificationsProvider({ children }: NotificationProviderProps) {
   // run the hook once globally
   useNotificationChecker();
 
