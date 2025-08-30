@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Modal } from "@/app/components/Modal";
 import { useCurrency } from "@/context/CurrencyContext";
 import { IoIosMore } from "react-icons/io";
@@ -27,6 +27,16 @@ export default function RemindersPage() {
   // For edit functionality
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [deleteIndex, setDeleteIndex] = useState<number | null>(null);
+
+  // Add State for live updates
+  const [now, setNow] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(Date.now())
+    }, 100) // update every micro second
+    return () => clearInterval(interval)
+  })
 
 
   // ----- Handlers -------------------
@@ -101,7 +111,8 @@ export default function RemindersPage() {
   }
 
   function isOverdue(dueDate: string) {
-    return Date.now() > new Date(dueDate).getTime();
+    return (
+      Date.now() > new Date(dueDate).getTime());
   }
 
    function findCurrencySymbol(code: string) {
