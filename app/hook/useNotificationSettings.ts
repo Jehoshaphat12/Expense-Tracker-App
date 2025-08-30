@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react"
 
-type IntervalOPtion = "5min" | "15min" | "30min" | "1hr" | "6hr" | "12hr" | "24hr"
+export type IntervalOption = "5min" | "15min" | "30min" | "1hr" | "6hr" | "12hr" | "24hr"
 
 interface NotificationSettings {
     enableReminders: boolean,
-    interval: IntervalOPtion
+    interval: IntervalOption
 }
 
 const defaultSettings: NotificationSettings = {
