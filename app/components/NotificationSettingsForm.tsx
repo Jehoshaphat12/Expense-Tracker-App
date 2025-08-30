@@ -4,6 +4,7 @@ import { useNotificationSettings } from "../hook/useNotificationSettings";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
+type IntervalOption = "5min" | "15min" | "30min" | "1hr" | "6hr" | "12hr" | "24hr";
 export default function NotificationSettingsForm() {
   const { settings, updateSettings } = useNotificationSettings();
 
@@ -12,7 +13,7 @@ export default function NotificationSettingsForm() {
   };
 
   const handleIntervalChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    updateSettings({ ...settings, interval: e.target.value as any });
+    updateSettings({ ...settings, interval: e.target.value as IntervalOption });
   };
 
   return (
